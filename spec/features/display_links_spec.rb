@@ -1,6 +1,12 @@
-feature 'Homepage' do
+feature 'Viewing Links' do
+
   scenario 'Displays links' do
-    visit '/'
-    expect(page).to have_link("Github")
+    Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+    visit '/links'
+    expect(page.status_code).to eq 200
+    
+    within 'ul#links' do
+      expect(page).to have_content("Makers Academy")
+    end
   end
 end
