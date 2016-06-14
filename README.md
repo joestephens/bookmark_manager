@@ -1,22 +1,18 @@
-<h1>Bookmark Manager</h1>
+#Bookmark Manager
 
-**User Stories**
+##User Stories
+As a time-pressed user
+So I can quickly reach my favourite websites
+I want to see a list of links saved in the system
 
-```
-As a user
-So that I can see what I've saved
-I wish to see a list of links
+As a time-pressed user
+So I can save links I like
+I want to be able to add links and title to the system
 
-As a User
-So that I can remember more sites
-I wish to be able to add a links
+As a time-pressed user
+So I can categorise my links
+I want to be able to tag a link
 
-As a User
-So that I can categorise my bookmarks
-I wish to be able to add a tag to my links
-
-As a User
-So that I can filter my view
-I wish to be able to filter links by tags
-
-```
+As a time-pressed user
+So I can locate links easily
+I want to be able to filter links by tag
