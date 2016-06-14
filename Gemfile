@@ -12,4 +12,5 @@ group :test do
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'EmojifyRspecFormatter'
+  gem 'database_cleaner'
 end
