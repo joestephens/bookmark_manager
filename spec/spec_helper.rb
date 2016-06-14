@@ -6,7 +6,6 @@ require 'database_cleaner'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require_relative '../lib/link'
 
 Capybara.app = BookmarkManager
 
