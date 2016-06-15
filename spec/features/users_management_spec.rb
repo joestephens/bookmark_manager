@@ -5,4 +5,17 @@ feature 'User sign up' do
     expect(User.first.email).to eq ('alice@example.com')
   end
 
+  scenario 'Requires a matching confirmation password' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  end
+
+  scenario 'With a password that doesn\'t match' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq("/users")
+    expect(page).to have_content 'Password and confirmation password do not match'
+  end
+
+  scenario 'I can\'t sign up without an email address' do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
 end
