@@ -73,11 +73,6 @@ class BookmarkManager < Sinatra::Base
     end
   end
 
-  # get '/users' do
-  #   flash.now[:notice] = "Password and confirmation password do not match"
-  #   erb :'users/new'
-  # end
-
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
