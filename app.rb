@@ -1,12 +1,15 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
+require 'sinatra/flash'
 require './models/link'
 require_relative 'data_mapper_setup'
 
 class Bookmarks < Sinatra::Base
-  #
+
   enable :sessions
   set :session_secret, 'super secret'
+
+  register Sinatra::Flash
 
   get '/' do
     redirect '/links'
@@ -44,10 +47,15 @@ class Bookmarks < Sinatra::Base
 
   post '/users' do
     user = User.create(email: params[:email],
-                password: params[:password],
-                password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect to('/links')
+                       password: params[:password],
+                       password_confirmation: params[:password_confirmation])
+    if user.save
+      session[:user_id] = user.id
+      redirect to('/links')
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb :'users/new'
+    end
   end
 
   helpers do
