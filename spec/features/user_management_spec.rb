@@ -6,18 +6,15 @@ feature 'User sign up' do
   end
 
   scenario 'requires a matching confirmation password' do
-
   	expect {sign_up(password_confirmation: 'wrong')}.not_to change(User,:count)
-  end 
+  end
 
- 	 def sign_up(email: 'alice@example.com',
-              password: '12345678',
-              password_confirmation: '12345678')
-    visit '/users/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    click_button 'Sign up'
+  scenario 'can\'t sign up without entering an email address' do
+    expect { sign_up(email: '') }.not_to change(User, :count)
+  end
+
+  scenario 'can\'t sign up with an invalid formatted email address' do
+    expect { sign_up(email: 'invalid@email') }.not_to change(User, :count)
   end
 
 end

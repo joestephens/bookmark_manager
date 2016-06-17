@@ -17,7 +17,7 @@ class User
 
 
   property :id, Serial
-  property :email, String
+  property :email, String, required: true, format: :email_address
   # this will store both the password and the salt
   # It's Text and not String because String holds
   # only 50 characters by default
@@ -37,6 +37,3 @@ class User
   end
 
 end
-
-
-
