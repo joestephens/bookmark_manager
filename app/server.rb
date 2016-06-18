@@ -5,7 +5,7 @@ class Bookmarks < Sinatra::Base
   use Rack::MethodOverride
   set :session_secret, 'super secret'
   set :partial_template_engine, :erb
-
+  set :public_folder, 'app/views/public'
   enable :partial_underscores
 
   helpers do

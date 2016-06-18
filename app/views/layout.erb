@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link type="text/css" rel="stylesheet" href="/style.css" />
     <title>Bookmark Manager</title>
   </head>
 
   <body>
-    <%= partial :welcome %>
-    <%= partial :flash %>
-    <%= yield %>
+    <div id="container">
+      <div id="header"><h1><a href="/links">Bookmark Manager</a></h1></div>
+      <div class="left"><%= partial :flash %><%= partial :welcome %></div>
+      <%= yield %>
+    </div>
   </body>
 </html>

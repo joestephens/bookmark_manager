@@ -1,6 +1,6 @@
 require 'bcrypt'
-class User
 
+class User
   include DataMapper::Resource
 
   attr_reader :password
@@ -26,5 +26,4 @@ class User
       nil
     end
   end
-
 end

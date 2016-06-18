@@ -1,16 +1,16 @@
-<h1> Links </h1>
+<div class="right">
+	<form action="/links/new" method="get" style="float: right;">
+		<input type="submit" value="Add new link">
+	</form>
+</div>
 
-<ul id='links'>
-	<% @links.each do |link| %>
-		<li>
-		Title: <%= link.title %>
-		URL: <a href="<%= link.url %>"><%= link.url %></a>
-		Tags: <%= link.tags %>
-		</li>
-	<% end %>
-</ul>
-
-<form action='/links/new' method='get'>
-<input type='submit' value='Add new link'>
-
-</form>
+<% @links.each do |link| %>
+	<div class="right">
+		<div style="float: left;">
+		<a href="<%= link.url %>"><h3><%= link.title %></h3></a>
+		</div>
+		<% link.tags.each do |tag| %>
+			<a href="/tags/<%= tag.name %>" class="tag">#<%= tag.name %></a>
+		<% end %>
+	</div>
+<% end %>

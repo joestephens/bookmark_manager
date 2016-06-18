@@ -1,7 +1,19 @@
 <% if current_user %>
   Welcome, <%= current_user.email %>
+  <br><br>
   <form method="post" action="/users">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Sign out">
+    <input type="submit" value="Sign out" class="small">
   </form>
+<% else %>
+  Welcome, Guest
+  <br><br>
+  <div style="display: inline;">
+  <form method="get" action="/users/new">
+    <input type="submit" value="Register" class="small">
+  </form>
+  <form method="get" action="/users/sign-in">
+    <input type="submit" value="Sign in" class="small">
+  </form>
+</div>
 <% end %>
