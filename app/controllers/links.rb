@@ -1,7 +1,15 @@
 class Bookmarks < Sinatra::Base
 
+  before do
+    @user ||= User.first(id: session[:user_id])
+  end
+
   get '/links' do
-    @links = Link.all
+    if @user
+      @links = @user.links
+    else
+      @links = []
+    end
     erb :'links/index'
   end
 
@@ -10,7 +18,7 @@ class Bookmarks < Sinatra::Base
   end
 
   post '/links' do
-    link = Link.create(url: params[:url], title: params[:title])
+    link = Link.create(url: params[:url], title: params[:title], user_id: @user.id)
 
     params[:tags].split.each do |tag|
       link.tags << Tag.first_or_create(name: tag)
@@ -19,5 +27,5 @@ class Bookmarks < Sinatra::Base
     link.save
     redirect '/links'
   end
-  
+
 end

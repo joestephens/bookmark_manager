@@ -9,4 +9,6 @@ class Link
   property :id, Serial
   property :title, String, required: true
   property :url, String, required: true
+
+  belongs_to :user
 end

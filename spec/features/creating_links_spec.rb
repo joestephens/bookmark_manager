@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'create new links' do
   scenario 'fill in a form that creates a link' do
+    sign_up
     visit 'links/new'
     fill_in('title', with: 'Apple')
     fill_in('url', with: 'http://www.apple.com')
