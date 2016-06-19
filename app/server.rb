@@ -8,6 +8,10 @@ class Bookmarks < Sinatra::Base
   set :public_folder, 'app/views/public'
   enable :partial_underscores
 
+  get '/' do
+    redirect '/links'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
