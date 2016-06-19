@@ -8,7 +8,8 @@
   <body>
     <div id="container">
       <div id="header"><h1><a href="/links">Bookmark Manager</a></h1></div>
-      <div class="left"><%= partial :flash %><%= partial :welcome %></div>
+      <div class="left"><%= partial :welcome %></div>
+      <%= partial :flash %>
       <%= yield %>
     </div>
   </body>

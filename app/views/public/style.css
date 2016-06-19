@@ -36,7 +36,7 @@ h1 {
 
 h2 {
   font-size: 1.3em;
-  margin: 0px;
+  margin: 0px 0px 15px 0px;
 }
 
 h3 {
@@ -54,23 +54,26 @@ label {
 }
 
 input {
-  border-radius: 5px;
-  border: 1px solid #330814;
+  border-radius: 0px;
+  border: 1px solid #CCD6EB;
   padding: 10px;
   outline: none;
   font-size: 1em;
+  margin-bottom: -1px;
 }
 
 .small {
   font-size: 0.75em;
   padding: 5px;
+  margin: 0px !important;
 }
 
 input[type=text], input[type=email], input[type=password] {
-  width: 200px;
+  width: calc(100% - 20px);
 }
 
 input[type=submit] {
+  margin-top: 10px;
   background-color: #330814;
   border: 1px solid #993955;
   color: #FFF;
@@ -102,21 +105,32 @@ a:hover {
 
 .left {
   border-radius: 5px;
-  width: calc(30% - 40px);
+  width: calc(100% - 40px);
   background-color: #330814;
-  float: left;
-  margin: 10px 0px 10px 0px;
+  /*float: left;*/
+  margin-top: 10px;
   padding: 20px;
+  overflow: auto;
 }
 
 .right {
   border-radius: 5px;
-  width: calc(70% - 50px);
+  width: calc(100% - 40px);
   padding: 20px;
   background-color: #EBF2FA;
-  float: right;
+  /*float: right;*/
   margin-top: 10px;
   color: #330814;
+  overflow: auto;
+}
+
+.welcome {
+  float: left;
+  margin-top: 5px;
+}
+
+.nav {
+  float: right;
 }
 
 #footer {

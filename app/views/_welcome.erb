@@ -1,19 +1,26 @@
 <% if current_user %>
-  Welcome, <%= current_user.email %>
-  <br><br>
-  <form method="post" action="/users">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Sign out" class="small">
-  </form>
+  <div class="welcome">
+    Welcome, <%= current_user.email %> &nbsp;
+  </div>
+  <div class="nav">
+    <form action="/links/new" method="get">
+      <input type="submit" value="Add new link" class="small">
+    </form> &nbsp;
+    <form method="post" action="/users">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign out" class="small">
+    </form>
+  </div>
 <% else %>
-  Welcome, Guest
-  <br><br>
-  <div style="display: inline;">
-  <form method="get" action="/users/new">
-    <input type="submit" value="Register" class="small">
-  </form>
-  <form method="get" action="/users/sign-in">
-    <input type="submit" value="Sign in" class="small">
-  </form>
-</div>
+  <div class="welcome">
+    Welcome, Guest &nbsp;
+  </div>
+  <div class="nav">
+    <form method="get" action="/users/new">
+      <input type="submit" value="Sign up" class="small">
+    </form> &nbsp;
+    <form method="get" action="/users/sign-in">
+      <input type="submit" value="Sign in" class="small">
+    </form>
+  </div>
 <% end %>
